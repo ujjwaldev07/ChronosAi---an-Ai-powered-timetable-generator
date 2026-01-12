@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChronosAI | Intelligent Scheduling</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            animation: {
+              // Sped up to 2s for a faster, more energetic feel
+              'pulse-slow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        transition: background-color 0.5s ease, color 0.5s ease;
+        background-attachment: fixed;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .dark .glass {
+        background: rgba(15, 23, 42, 0.7);
+      }
+      .ai-gradient {
+        background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+      }
+      .ai-glow {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #334155;
+      }
+
+      .print-only { display: none; }
+
+      /* PDF Export / Print styles */
+      @media print {
+        @page {
+          size: A4;
+          margin: 1.5cm;
+        }
+        
+        nav, .no-print, button, .ai-gradient:not(.print-visible) {
+          display: none !important;
+        }
+        
+        .print-only { 
+          display: block !important; 
+          width: 100% !important;
+        }
+        
+        body {
+          background: white !important;
+          color: black !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        
+        #root {
+          padding: 0 !important;
+        }
+        
+        .glass {
+          backdrop-filter: none !important;
+          background: white !important;
+          border: 1px solid #e2e8f0 !important;
+        }
+        
+        .dark .glass {
+          background: white !important;
+          color: black !important;
+        }
+        
+        .max-w-7xl {
+          max-width: 100% !important;
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+        
+        .rounded-[2.5rem], .rounded-[3rem], .rounded-3xl, .rounded-xl {
+          border-radius: 6px !important;
+        }
+        
+        .shadow-2xl, .shadow-xl, .shadow-lg, .shadow-indigo-500\/5, .shadow-inner {
+          box-shadow: none !important;
+        }
+        
+        .border {
+          border: 1px solid #ddd !important;
+        }
+        
+        .page-break {
+          break-after: page;
+          page-break-after: always;
+        }
+        
+        /* High-contrast colors for PDF readability */
+        h3, h4, p, span {
+          color: #000 !important;
+        }
+        
+        .text-indigo-600, .text-indigo-500, .text-indigo-400 {
+          color: #3730a3 !important; /* Force darker indigo for print */
+        }
+
+        .bg-indigo-50 {
+          background-color: #f5f3ff !important;
+        }
+
+        .bg-slate-50 {
+          background-color: #f8fafc !important;
+        }
+      }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "html2canvas": "https://esm.sh/html2canvas@1.4.1"
+      }
+    }
+    </script>
+  </head>
+  <body class="bg-[#f8fafc] dark:bg-[#020617] text-slate-900 dark:text-slate-100 min-h-screen selection:bg-indigo-100 dark:selection:bg-indigo-900">
+    <div id="root"></div>
+  </body>
+</html>

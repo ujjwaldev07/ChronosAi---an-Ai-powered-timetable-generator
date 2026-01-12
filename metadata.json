@@ -1,0 +1,5 @@
+{
+  "name": "ChronosAI",
+  "description": "An advanced AI-powered timetable scheduling application that optimizes academic calendars with specific break logic, batch management, and room assignments.",
+  "requestFramePermissions": []
+}
