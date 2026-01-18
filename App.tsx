@@ -14,7 +14,7 @@ export enum View {
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>(View.HOME);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [selectedTimetable, setSelectedTimetable] = useState<SavedTimetable | null>(null);
 
   useEffect(() => {
