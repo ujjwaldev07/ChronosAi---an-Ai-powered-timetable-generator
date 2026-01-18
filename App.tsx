@@ -66,7 +66,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col transition-colors duration-300">
+    <div className="min-h-screen flex flex-col transition-colors duration-300 bg-slate-950 text-white">
       <Navbar 
         onNavigate={(view) => handleNavigate(view as View)} 
         currentView={currentView}
